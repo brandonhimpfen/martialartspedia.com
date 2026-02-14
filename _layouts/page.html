@@ -1,5 +1,134 @@
-<article class="article">
+<div class="tabs">
+  <div class="tabGroup">
+    <span class="tab active">Article</span>
+    <a class="tab" href="#" onclick="return false;">Talk</a>
+  </div>
+  <div class="tabGroup">
+    <span class="tab">Read</span>
+    <a class="tab" href="#" onclick="return false;">View source</a>
+    <a class="tab" href="#" onclick="return false;">History</a>
+  </div>
+</div>
+
+<header class="pageHead">
+  <div class="crumbs">
+    <a href="{{ '/' | relative_url }}">Library</a>
+    <span class="sep">/</span>
+    {% if page.collection %}
+      <a href="{{ '/' | append: page.collection | append: '/' | relative_url }}">{{ page.collection | capitalize }}</a>
+    {% else %}
+      <span class="muted">Pages</span>
+    {% endif %}
+  </div>
+
   <h1>{{ page.title }}</h1>
-  <div class="meta">Last edited: {{ page.last_edited | default: "N/A" }}</div>
-  {{ content }}
-</article>
+
+  <div class="pageMeta">
+    {% if page.type_label %}<span class="pill">{{ page.type_label }}</span>{% endif %}
+    {% if page.last_edited %}<span class="pill soft">Edited {{ page.last_edited }}</span>{% endif %}
+    <span class="pill soft">Evidence {{ page.evidence | default: 0 }}%</span>
+  </div>
+</header>
+
+<section class="grid">
+  <article class="article">
+    {% if page.hatnote %}
+      <div class="callout">{{ page.hatnote }}</div>
+    {% endif %}
+
+    {% if page.lede %}
+      <p class="lede">{{ page.lede }}</p>
+    {% endif %}
+
+    {% if page.toc %}
+      <nav class="toc" id="toc" aria-label="Contents">
+        <div class="tocTop">
+          <div class="tocTitle">On this page</div>
+          <button class="tocBtn" id="collapseToc" type="button">Collapse</button>
+        </div>
+        {% if page.toc_items %}
+          <ol id="tocList">
+            {% for item in page.toc_items %}
+              <li><a href="{{ item.href }}">{{ item.label }}</a></li>
+            {% endfor %}
+          </ol>
+        {% else %}
+          <ol id="tocList">
+            <li class="muted small">Add <code>toc_items</code> in front matter to populate this.</li>
+          </ol>
+        {% endif %}
+      </nav>
+    {% endif %}
+
+    <div class="contentBody">
+      {{ content }}
+    </div>
+
+    {% if page.references and page.show_references %}
+      <h2 id="refs">References</h2>
+      <ol class="refs" id="refsList">
+        {% for r in page.references %}
+          <li><span class="refnum">[{{ forloop.index }}]</span> {{ r }}</li>
+        {% endfor %}
+      </ol>
+    {% endif %}
+
+    {% if page.categories %}
+      <div class="catbar">
+        <span class="muted">Categories</span>
+        {% for c in page.categories %}
+          <a href="{{ '/tags/' | append: c | append: '/' | relative_url }}">{{ c }}</a>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </article>
+
+  <aside class="rail">
+    <section class="card infobox">
+      <div class="iboxTitle">{{ page.title }}</div>
+      <div class="iboxSub">{{ page.infobox_sub | default: 'Entry' }}</div>
+
+      {% if page.focus %}
+      <div class="iboxRow">
+        <div class="k">Focus</div>
+        <div class="v">{{ page.focus }}</div>
+      </div>
+      {% endif %}
+
+      {% if page.era %}
+      <div class="iboxRow">
+        <div class="k">Era</div>
+        <div class="v">{{ page.era }}</div>
+      </div>
+      {% endif %}
+
+      <div class="iboxRow">
+        <div class="k">Evidence</div>
+        <div class="v">
+          <div class="bar"><div class="fill" style="width: {{ page.evidence | default: 0 }}%"></div></div>
+          <div class="muted small">{{ page.evidence | default: 0 }}% (sources available)</div>
+        </div>
+      </div>
+
+      {% if page.tags %}
+      <div class="iboxRow">
+        <div class="k">Tags</div>
+        <div class="v">
+          {% for t in page.tags %}<span class="tag">{{ t }}</span>{% endfor %}
+        </div>
+      </div>
+      {% endif %}
+    </section>
+
+    {% if page.related %}
+      <section class="card">
+        <div class="cardTitle">Related pages</div>
+        <div class="cardBody">
+          {% for rel in page.related %}
+            <a class="linkPill" href="{{ rel | relative_url }}">{{ rel | split: '/' | last | replace:'-',' ' }}</a>
+          {% endfor %}
+        </div>
+      </section>
+    {% endif %}
+  </aside>
+</section>

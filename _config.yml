@@ -1,5 +1,8 @@
 title: MartialArtsPedia
-url: "https://martialartspedia.com"
+description: A preservation-first martial arts reference library.
+url: ""
+baseurl: ""
+
 markdown: kramdown
 
 collections:
@@ -21,3 +24,6 @@ defaults:
       path: ""
     values:
       layout: page
+      toc: true
+      show_references: true
+      evidence: 0

@@ -1,0 +1,31 @@
+<aside class="nav" id="nav">
+  <div class="navSection">
+    <div class="navTitle">Browse</div>
+    <a class="navLink {% if page.url == '/' %}active{% endif %}" href="{{ '/' | relative_url }}">Home</a>
+    <a class="navLink" href="{{ '/all/' | relative_url }}">All pages</a>
+    <a class="navLink" href="{{ '/random/' | relative_url }}">Random</a>
+  </div>
+
+  <div class="navSection">
+    <div class="navTitle">Collections</div>
+    <a class="navPill" href="{{ '/arts/' | relative_url }}">Arts</a>
+    <a class="navPill" href="{{ '/topics/' | relative_url }}">Topics</a>
+    <a class="navPill" href="{{ '/people/' | relative_url }}">People</a>
+    <a class="navPill" href="{{ '/sources/' | relative_url }}">Sources</a>
+  </div>
+
+  <div class="navSection">
+    <div class="navTitle">Tags</div>
+    <div class="chips">
+      {% for tag in site.data.tags.tags %}
+        <a class="chip" href="{{ '/tags/' | append: tag | append: '/' | relative_url }}">{{ tag }}</a>
+      {% endfor %}
+    </div>
+  </div>
+
+  <div class="navFooter">
+    <div class="muted">
+      Editorial stance: document, cite, and label uncertainty. Separate evidence from claims.
+    </div>
+  </div>
+</aside>
