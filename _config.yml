@@ -1,0 +1,23 @@
+title: MartialArtsPedia
+url: "https://martialartspedia.com"
+markdown: kramdown
+
+collections:
+  arts:
+    output: true
+    permalink: /arts/:slug/
+  topics:
+    output: true
+    permalink: /topics/:slug/
+  people:
+    output: true
+    permalink: /people/:slug/
+  sources:
+    output: true
+    permalink: /sources/:slug/
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: page
