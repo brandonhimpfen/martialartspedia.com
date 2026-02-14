@@ -1,12 +1,12 @@
 ---
-title: Sources and media method
+title: Primary video annotation template
 type_label: Method
 last_edited: Feb 2026
-evidence: 89
-tags: [sources, history]
+evidence: 83
+tags: [sources, pedagogy]
 lede: A repeatable template for capturing sources consistently and transparently.
-infobox_sub: "Method · Citation practice"
-focus: "Primary vs secondary labeling"
+infobox_sub: "Method · Sources"
+focus: "YouTube timestamps, provenance"
 era: "All eras"
 toc: false
 ---

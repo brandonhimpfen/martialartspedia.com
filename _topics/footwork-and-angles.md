@@ -1,12 +1,12 @@
 ---
-title: Distance and timing
+title: Footwork and angles
 type_label: Topic
 last_edited: Feb 2026
-evidence: 87
-tags: [footwork, striking, grappling]
-lede: A concept page documenting how different arts discuss **distance and timing**, with definitions first and sources attached.
+evidence: 88
+tags: [footwork, striking, pedagogy]
+lede: A concept page documenting how different arts discuss **footwork and angles**, with definitions first and sources attached.
 infobox_sub: "Concept · Cross-style"
-focus: "Tempo, initiative, distance"
+focus: "Footwork, angles, stance"
 era: "All eras"
 toc: false
 ---

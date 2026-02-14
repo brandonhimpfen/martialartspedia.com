@@ -76,15 +76,6 @@ layout: default
         {% endfor %}
       </ol>
     {% endif %}
-
-    {% if page.categories %}
-      <div class="catbar">
-        <span class="muted">Categories</span>
-        {% for c in page.categories %}
-          <a href="{{ '/tags/' | append: c | append: '/' | relative_url }}">{{ c }}</a>
-        {% endfor %}
-      </div>
-    {% endif %}
   </article>
 
   <aside class="rail">
@@ -123,16 +114,5 @@ layout: default
       </div>
       {% endif %}
     </section>
-
-    {% if page.related %}
-      <section class="card">
-        <div class="cardTitle">Related pages</div>
-        <div class="cardBody">
-          {% for rel in page.related %}
-            <a class="linkPill" href="{{ rel | relative_url }}">{{ rel | split: '/' | last | replace:'-',' ' }}</a>
-          {% endfor %}
-        </div>
-      </section>
-    {% endif %}
   </aside>
 </section>

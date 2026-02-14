@@ -6,10 +6,6 @@ lede: Welcome to MartialArtsPedia, a preservation-first martial arts reference l
 toc: false
 ---
 
-## Start here
-
-Use the left navigation to browse arts, topics, people, and sources. Use search to jump to any page quickly.
-
 ## Collections
 
 - [Arts]({{ '/arts/' | relative_url }})

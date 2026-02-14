@@ -1,12 +1,12 @@
 ---
-title: Sources and media method
+title: Book citation template
 type_label: Method
 last_edited: Feb 2026
-evidence: 89
+evidence: 87
 tags: [sources, history]
 lede: A repeatable template for capturing sources consistently and transparently.
-infobox_sub: "Method · Citation practice"
-focus: "Primary vs secondary labeling"
+infobox_sub: "Method · Sources"
+focus: "Edition, translator, context"
 era: "All eras"
 toc: false
 ---
